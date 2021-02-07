@@ -1,7 +1,7 @@
 package edu.frlp.utn.giuct.controller;
 
 import edu.frlp.utn.giuct.models.City;
-import edu.frlp.utn.giuct.repository.CityRepository;
+import edu.frlp.utn.giuct.service.CityService;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class EjemploController {
 
     @Autowired
-    private CityRepository cityRepository;
+    private CityService cityService;
 
     @GetMapping("/cities")
     public List<City> findCities() {
-        return cityRepository.findAll();
+        return cityService.findAll();
     }
 }

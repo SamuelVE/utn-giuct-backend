@@ -12,7 +12,7 @@ public class AppErrorController implements ErrorController{
     @RequestMapping(PATH)
     @ResponseBody
     public String getErrorPath() {
-        return "No Mapping Found";
+        return "Oops, something went wrong";
     }
 
 }
