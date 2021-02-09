@@ -24,6 +24,6 @@ public class PersonaModel {
     private String emailInstitucional;
     private String emailPersonal;
     private String telefono;
-    @OneToOne private PasaporteModel pasaporte;
-    @OneToOne private InvestigadorModel investigador;
+    @OneToOne(fetch=FetchType.EAGER, optional=true, cascade=CascadeType.ALL) private PasaporteModel pasaporte;
+    @OneToOne(fetch=FetchType.EAGER, optional=true, cascade=CascadeType.ALL) private InvestigadorModel investigador;
 }

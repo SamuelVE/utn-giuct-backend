@@ -41,6 +41,7 @@ public class DbInicialization {
     public void initializePersonasTableFromMock() {
         System.out.println("Inicializando personas desde el mock");
         PersonaModel[] mockPersonas = restTemplateBuilder.build().getForObject(personasMockUrl, PersonaModel[].class);
+        //TODO validar si al menos existe una persona en la tabla persona
         if (!personaRepository.existsByNombre(mockPersonas[0].getNombre())) {
             perfilInvestigadorRepository.saveAll(Arrays.stream(mockPersonas)
                     .map(PersonaModel::getInvestigador)
