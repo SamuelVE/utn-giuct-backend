@@ -1,8 +1,8 @@
-package edu.frlp.utn.giuct.controller;
+package edu.frlp.utn.giuct.controller.gestionderrhh;
 
 
-import edu.frlp.utn.giuct.models.PersonaModel;
-import edu.frlp.utn.giuct.service.PersonaService;
+import edu.frlp.utn.giuct.models.gestionderrhh.*;
+import edu.frlp.utn.giuct.service.gestionderrhh.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +14,18 @@ public class PersonasController {
 
     @Autowired
     private PersonaService personaService;
+
+    @Autowired
+    private PerfilInvestigadorService perfilInvestigadorService;
+
+    @Autowired
+    private PasaporteService pasaporteService;
+
+    @Autowired
+    private CargoService cargoService;
+
+    @Autowired
+    private MateriaService materiaService;
 
     //CONSULTA
 
@@ -41,6 +53,38 @@ public class PersonasController {
         System.out.println("GestionDePersonasController -> createPerson()");
         personaService.createPerson(person);
         return personaService.findAll();
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/perfilInvestigador")
+    public @ResponseBody
+    List<InvestigadorModel> createPerfilInvestigador(@RequestBody InvestigadorModel perfilInvestigador) {
+        System.out.println("GestionDePersonasController -> createPerfilInvestigador()");
+        perfilInvestigadorService.createPerfilInvestigador(perfilInvestigador);
+        return perfilInvestigadorService.findAll();
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/pasaporte")
+    public @ResponseBody
+    List<PasaporteModel> createPasaporte(@RequestBody PasaporteModel pasaporte) {
+        System.out.println("GestionDePersonasController -> createPasaporte()");
+        pasaporteService.createPasaporte(pasaporte);
+        return pasaporteService.findAll();
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/cargo")
+    public @ResponseBody
+    List<CargoModel> createCargo(@RequestBody CargoModel cargoModel) {
+        System.out.println("GestionDePersonasController -> createCargo()");
+        cargoService.createCargo(cargoModel);
+        return cargoService.findAll();
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/materia")
+    public @ResponseBody
+    List<MateriaModel> createMateria(@RequestBody MateriaModel materia) {
+        System.out.println("GestionDePersonasController -> createMateria()");
+        materiaService.createMateria(materia);
+        return materiaService.findAll();
     }
 
     //MODIFICACION

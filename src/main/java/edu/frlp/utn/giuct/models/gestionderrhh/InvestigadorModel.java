@@ -1,4 +1,4 @@
-package edu.frlp.utn.giuct.models;
+package edu.frlp.utn.giuct.models.gestionderrhh;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

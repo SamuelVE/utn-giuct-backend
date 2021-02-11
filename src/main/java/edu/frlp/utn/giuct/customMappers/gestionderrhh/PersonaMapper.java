@@ -1,6 +1,6 @@
-package edu.frlp.utn.giuct.utils;
+package edu.frlp.utn.giuct.customMappers.gestionderrhh;
 
-import edu.frlp.utn.giuct.models.PersonaModel;
+import edu.frlp.utn.giuct.models.gestionderrhh.PersonaModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;

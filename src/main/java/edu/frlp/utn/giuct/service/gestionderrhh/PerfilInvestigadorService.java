@@ -1,7 +1,7 @@
-package edu.frlp.utn.giuct.service;
+package edu.frlp.utn.giuct.service.gestionderrhh;
 
-import edu.frlp.utn.giuct.models.InvestigadorModel;
-import edu.frlp.utn.giuct.repository.PerfilInvestigadorRepository;
+import edu.frlp.utn.giuct.models.gestionderrhh.InvestigadorModel;
+import edu.frlp.utn.giuct.repository.gestionderrhh.PerfilInvestigadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,4 +16,6 @@ public class PerfilInvestigadorService {
     public List<InvestigadorModel> findAll() {
         return repository.findAll();
     }
+
+    public void createPerfilInvestigador(InvestigadorModel perfilInvestigador) {repository.save(perfilInvestigador);}
 }

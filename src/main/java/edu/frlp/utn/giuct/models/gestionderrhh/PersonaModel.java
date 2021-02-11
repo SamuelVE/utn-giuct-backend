@@ -1,10 +1,12 @@
-package edu.frlp.utn.giuct.models;
+package edu.frlp.utn.giuct.models.gestionderrhh;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "persona")
@@ -19,11 +21,9 @@ public class PersonaModel {
     private String nombre;
     private String apellido;
     private String dni;
-    private String cuil;
     private String direccionPostal;
-    private String emailInstitucional;
-    private String emailPersonal;
     private String telefono;
     @OneToOne(fetch=FetchType.EAGER, optional=true, cascade=CascadeType.ALL) private PasaporteModel pasaporte;
     @OneToOne(fetch=FetchType.EAGER, optional=true, cascade=CascadeType.ALL) private InvestigadorModel investigador;
+    @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL) private List<MateriaModel> materias;
 }

@@ -1,6 +1,6 @@
-package edu.frlp.utn.giuct.repository;
+package edu.frlp.utn.giuct.repository.gestionderrhh;
 
-import edu.frlp.utn.giuct.models.InvestigadorModel;
+import edu.frlp.utn.giuct.models.gestionderrhh.InvestigadorModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

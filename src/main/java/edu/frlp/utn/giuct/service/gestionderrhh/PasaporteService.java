@@ -1,7 +1,7 @@
-package edu.frlp.utn.giuct.service;
+package edu.frlp.utn.giuct.service.gestionderrhh;
 
-import edu.frlp.utn.giuct.models.PasaporteModel;
-import edu.frlp.utn.giuct.repository.PasaporteRepository;
+import edu.frlp.utn.giuct.models.gestionderrhh.PasaporteModel;
+import edu.frlp.utn.giuct.repository.gestionderrhh.PasaporteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,4 +16,6 @@ public class PasaporteService {
     public List<PasaporteModel> findAll() {
         return repository.findAll();
     }
+
+    public void createPasaporte(PasaporteModel pasaporte) {repository.save(pasaporte);}
 }
