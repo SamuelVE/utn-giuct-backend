@@ -55,29 +55,7 @@ public class DbInicialization {
     public void initializePersonasTableFromMock() {
         System.out.println("Inicializando personas desde el mock");
         PersonaModel[] mockPersonas = restTemplateBuilder.build().getForObject(personasMockUrl, PersonaModel[].class);
-
-        //TODO validar si al menos existe una persona en la tabla persona
-        //if (!personaRepository.existsByNombre(mockPersonas[0].getNombre())) {
-//            perfilInvestigadorRepository.saveAll(Arrays.stream(mockPersonas)
-//                    .map(PersonaModel::getInvestigador)
-//                    .collect(Collectors.toList()));
-//            pasaporteRepository.saveAll(Arrays.stream(mockPersonas)
-//                    .map(PersonaModel::getPasaporte)
-//                    .collect(Collectors.toList()));
-//            Arrays.stream(mockPersonas)
-//                    .map(PersonaModel::getMaterias)
-//                    .forEach(listOfSetOfMateria ->
-//                            cargoRepository.saveAll(listOfSetOfMateria.stream()
-//                                    .map(MateriaModel::getCargo)
-//                                    .collect(Collectors.toList())
-//                            )
-//                    );
-//            Arrays.stream(mockPersonas)
-//                    .map(PersonaModel::getMaterias)
-//                    .forEach(listOfSetOfMateria ->
-//                            materiaRepository.saveAll(listOfSetOfMateria));
-        //if (isPersonaTableEmpty())
+        if (!personaRepository.existsByDni(mockPersonas[0].getDni()))
         personaRepository.saveAll(Arrays.asList(mockPersonas));
-      //  }
     }
 }

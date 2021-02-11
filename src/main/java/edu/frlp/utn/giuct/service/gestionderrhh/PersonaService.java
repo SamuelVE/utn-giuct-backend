@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.util.List;
-import java.util.Optional;
-
 @Service
 public class PersonaService {
 
@@ -32,7 +30,7 @@ public class PersonaService {
     }
 
     public void createPerson(PersonaModel persona) {
-        if (repository.existsByDni(persona.getDni())) {
+        if (!repository.existsByDni(persona.getDni())) {
             repository.save(persona);
         }
     }

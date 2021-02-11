@@ -9,6 +9,151 @@
 			"name": "persona",
 			"item": [
 				{
+					"name": "subobjetos",
+					"item": [
+						{
+							"name": "Post cargo",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cargo\": \"profesor adjunto\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/gestiondepersonas/cargo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"gestiondepersonas",
+										"cargo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Post materia",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"nombre\": \"seguridad\",\r\n        \"dedicacion\": \"simple\",\r\n        \"cargo\": {\r\n             \"cargo\": \"profesor adjunto\"\r\n        }\r\n    }\r\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8080/gestiondepersonas/materia",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"gestiondepersonas",
+										"materia"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Post perfilInvestigador",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"categoriaDeInvestigador\": \"II\",\r\n    \"tipoDeInvestigador\": \"CIC\",\r\n    \"cantidadDeHoras\": \"18\",\r\n    \"fechaDeObtencionDeCategoria\": \"04/04/2015\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/gestiondepersonas/perfilInvestigador",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"gestiondepersonas",
+										"perfilInvestigador"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Post pasaporte",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numero\": \"30065503\",\r\n    \"fechaDeVencimiento\": \"01/07/2024\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/gestiondepersonas/pasaporte",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"gestiondepersonas",
+										"pasaporte"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Get all people",
 					"request": {
 						"method": "GET",
@@ -88,7 +233,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "  {\r\n    \"nombre\": \"PersonaDePrueba\",\r\n    \"apellido\": \"Maynard\",\r\n    \"dni\": \"48499296\",\r\n    \"cuil\": \"20-48499296-2\",\r\n    \"direccionPostal\": 1769,\r\n    \"emailInstitucional\": \"Ada.Maynard@frlp.utn.edu.ar\",\r\n    \"emailPersonal\": \"Ada.Maynard@gmail.com\",\r\n    \"telefono\": \"+54 (906) 445-2886\",\r\n    \"pasaporte\": {\r\n      \"numero\": \"22831734\",\r\n      \"fechaDeVencimiento\": \"30/07/2023\"\r\n    },\r\n    \"investigador\": {\r\n      \"categoriaDeInvestigador\": \"G\",\r\n      \"tipoDeInvestigador\": \"Nacional\",\r\n      \"cantidadDeHoras\": \"12\",\r\n      \"fechaDeObtencionDeCategoria\": \"28/09/2017\"\r\n    }\r\n  }"
+							"raw": "{\r\n        \"nombre\": \"Barrett\",\r\n        \"apellido\": \"Smith\",\r\n        \"dni\": \"81866361\",\r\n        \"direccionPostal\": 6189,\r\n        \"telefono\": \"+54 (810) 469-2581\",\r\n        \"pasaporte\": {\r\n            \"numero\": \"30065503\",\r\n            \"fechaDeVencimiento\": \"01/07/2024\"\r\n        },\r\n        \"investigador\": {\r\n            \"categoriaDeInvestigador\": \"II\",\r\n            \"tipoDeInvestigador\": \"CIC\",\r\n            \"cantidadDeHoras\": \"18\",\r\n            \"fechaDeObtencionDeCategoria\": \"04/04/2015\"\r\n        },\r\n        \"materias\": [\r\n            {\r\n                \"nombre\": \"seguridad\",\r\n                \"dedicacion\": \"simple\",\r\n                \"cargo\": {\r\n                    \"cargo\": \"profesor adjunto\"\r\n                }\r\n            }\r\n        ]\r\n    }"
 						},
 						"url": {
 							"raw": "http://localhost:8080/gestiondepersonas/id/1113",
@@ -145,18 +290,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "  {\r\n    \"nombre\": \"Lord\",\r\n    \"apellido\": \"Maynard\",\r\n    \"dni\": \"48499296\",\r\n    \"cuil\": \"20-48499296-2\",\r\n    \"direccionPostal\": 1769,\r\n    \"emailInstitucional\": \"Ada.Maynard@frlp.utn.edu.ar\",\r\n    \"emailPersonal\": \"Ada.Maynard@gmail.com\",\r\n    \"telefono\": \"+54 (906) 445-2886\",\r\n    \"pasaporte\": {\r\n      \"numero\": \"22831734\",\r\n      \"fechaDeVencimiento\": \"30/07/2023\"\r\n    },\r\n    \"investigador\": {\r\n      \"categoriaDeInvestigador\": \"G\",\r\n      \"tipoDeInvestigador\": \"Nacional\",\r\n      \"cantidadDeHoras\": \"12\",\r\n      \"fechaDeObtencionDeCategoria\": \"28/09/2017\"\r\n    }\r\n  }"
+							"raw": "{\r\n        \"nombre\": \"prueba\",\r\n        \"apellido\": \"Smith\",\r\n        \"dni\": \"81823366361\",\r\n        \"direccionPostal\": 6189,\r\n        \"telefono\": \"+54 (810) 469-2581\",\r\n        \"pasaporte\": {\r\n            \"numero\": \"30065503\",\r\n            \"fechaDeVencimiento\": \"01/07/2024\"\r\n        },\r\n        \"investigador\": {\r\n            \"categoriaDeInvestigador\": \"II\",\r\n            \"tipoDeInvestigador\": \"CIC\",\r\n            \"cantidadDeHoras\": \"18\",\r\n            \"fechaDeObtencionDeCategoria\": \"04/04/2015\"\r\n        },\r\n        \"materias\": [\r\n            {\r\n                \"nombre\": \"seguridad\",\r\n                \"dedicacion\": \"simple\",\r\n                \"cargo\": {\r\n                    \"cargo\": \"profesor adjunto\"\r\n                }\r\n            }\r\n        ]\r\n    }"
 						},
 						"url": {
-							"raw": "http://localhost:8080/gestiondepersonas/",
+							"raw": "http://localhost:8080/gestiondepersonas",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"gestiondepersonas",
-								""
+								"gestiondepersonas"
 							]
 						}
 					},
