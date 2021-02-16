@@ -1,6 +1,6 @@
-package edu.frlp.utn.giuct.repository.fuentesDeFinanciamiento;
+package edu.frlp.utn.giuct.repository.fuentesdefinanciamiento;
 
-import edu.frlp.utn.giuct.models.fuentesDeFinanciamiento.FuenteDeFinanciamientoModel;
+import edu.frlp.utn.giuct.models.fuentesdefinanciamiento.FuenteDeFinanciamientoModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

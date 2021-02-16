@@ -1,25 +1,22 @@
 package edu.frlp.utn.giuct.setup;
 
-import edu.frlp.utn.giuct.models.fuentesDeFinanciamiento.FuenteDeFinanciamientoModel;
+import edu.frlp.utn.giuct.models.fuentesdefinanciamiento.FuenteDeFinanciamientoModel;
+import edu.frlp.utn.giuct.models.gestiondepids.PidModel;
+import edu.frlp.utn.giuct.models.gestiondeformacionacademica.TipoDePracticaEnumModel;
 import edu.frlp.utn.giuct.models.gestionderrhh.PersonaModel;
-import edu.frlp.utn.giuct.repository.fuentesDeFinanciamiento.FuenteDeFinanciamientoRepository;
+import edu.frlp.utn.giuct.repository.fuentesdefinanciamiento.FuenteDeFinanciamientoRepository;
+import edu.frlp.utn.giuct.repository.gestiondepids.PidRepository;
+import edu.frlp.utn.giuct.repository.gestiondeformacionacademica.TipoDePracticaRepository;
 import edu.frlp.utn.giuct.repository.gestionderrhh.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
-import java.util.stream.Stream;
 
 @Component
 public class DbInicialization {
@@ -33,11 +30,24 @@ public class DbInicialization {
     @Autowired
     private FuenteDeFinanciamientoRepository fuenteDeFinanciamientoRepository;
 
+    @Autowired
+    private PidRepository pidRepository;
+
+    @Autowired
+    private TipoDePracticaRepository tipoDePracticaRepository;
+
     @Value("${variables.personasMockUrl}")
     private String personasMockUrl;
 
     @Value("${variables.fuentesDeFinanciamientoMockUrl}")
     private String fuentesDeFinanciamientoMockUrl;
+
+    @Value("${variables.pidsMockUrl}")
+    private String pidsMockUrl;
+
+    @Value("${variables.practicasMockUrl}")
+    private String practicasMockUrl;
+
 
     @PostConstruct
     public void makeLogs() {
@@ -45,17 +55,27 @@ public class DbInicialization {
     }
 
     @PostConstruct
-    public void initializePersonasTableFromMock() {
+    public void initializeTablesFromMocks() {
         System.out.println("Inicializando personas desde el mock");
         restTemplate.defaultHeader(HttpHeaders.CONTENT_TYPE, "application/json");
         PersonaModel[] mockPersonas = restTemplate.build().getForObject(personasMockUrl, PersonaModel[].class);
         if (!personaRepository.existsByDni(mockPersonas[0].getDni())) {
             personaRepository.saveAll(Arrays.asList(mockPersonas));
         }
+        System.out.println("Inicializando Fuentes De Financiamiento desde el mock");
         FuenteDeFinanciamientoModel[] mockFuentes = restTemplate.build().getForObject(fuentesDeFinanciamientoMockUrl, FuenteDeFinanciamientoModel[].class);
-        System.out.println(mockFuentes);
         if (!fuenteDeFinanciamientoRepository.existsByFuente(mockFuentes[0].getFuente())) {
             Arrays.stream(mockFuentes).forEach(m -> fuenteDeFinanciamientoRepository.save(m));
+        }
+        System.out.println("Inicializando pids desde el mock");
+        String[] mockPids = restTemplate.build().getForObject(pidsMockUrl, String[].class);
+        if (!pidRepository.existsByName(mockPids[0])) {
+            Arrays.stream(mockPids).forEach(m -> pidRepository.save(new PidModel(m)));
+        }
+        System.out.println("Inicializando practicas desde el mock");
+        String[] mockPracticas = restTemplate.build().getForObject(practicasMockUrl, String[].class);
+        if (!tipoDePracticaRepository.existsByTipoDePractica(mockPracticas[0])) {
+            Arrays.stream(mockPracticas).forEach(m -> tipoDePracticaRepository.save(new TipoDePracticaEnumModel(m)));
         }
     }
 }

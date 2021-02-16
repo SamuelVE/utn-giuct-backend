@@ -10,6 +10,7 @@ import java.util.List;
 public interface PersonaRepository extends JpaRepository<PersonaModel, Integer> {
 
     List<PersonaModel> findByNombre(String name);
+    List<PersonaModel> findByNombreContaining(String infix);
     PersonaModel findByDni(String dni);
 
     boolean existsByNombre(String name);

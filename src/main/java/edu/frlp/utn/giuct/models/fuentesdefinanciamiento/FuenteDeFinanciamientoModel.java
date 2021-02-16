@@ -1,4 +1,4 @@
-package edu.frlp.utn.giuct.models.fuentesDeFinanciamiento;
+package edu.frlp.utn.giuct.models.fuentesdefinanciamiento;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
