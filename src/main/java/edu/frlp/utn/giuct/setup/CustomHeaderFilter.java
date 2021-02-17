@@ -13,7 +13,8 @@ public class CustomHeaderFilter implements Filter {
             IOException,ServletException {
         HttpServletResponse httpServletResponse=(HttpServletResponse)response;
         httpServletResponse.setHeader("Access-Control-Allow-Origin","*");
-        httpServletResponse.setHeader("Content-Type","application/json; charset=utf-8");
+        httpServletResponse.setHeader("Access-Control-Allow-Headers","*");
+        httpServletResponse.setHeader("Access-Control-Allow-Methods","*");
         chain.doFilter(request, response);
     }
     @Override
