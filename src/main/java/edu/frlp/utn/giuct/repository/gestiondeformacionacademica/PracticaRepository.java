@@ -9,8 +9,8 @@ import java.util.Optional;
 
 @Repository
 public interface PracticaRepository extends JpaRepository<PracticaModel, Integer> {
-    Optional<PracticaModel> findByFechaInicioEnMillis(String fecha);
-    Optional<PracticaModel> findByFechaFinalEnMillis(String fecha);
+    Optional<PracticaModel> findByFechaInicio(String fecha);
+    Optional<PracticaModel> findByFechaFinal(String fecha);
     List<PracticaModel> findByCatedra(String catedra);
     List<PracticaModel> findByUniversidad(String universidad);
     List<PracticaModel> findByEscuela(String escuela);
@@ -20,11 +20,7 @@ public interface PracticaRepository extends JpaRepository<PracticaModel, Integer
     List<PracticaModel> findByTutor(String tutor);
     List<PracticaModel> findByDocente(String docente);
 
-    List<PracticaModel> findByTipoDePractica(String tipoDePractica);
-    List<PracticaModel> findByVinculacionConProyecto(String vinculacionConProyecto);
-    List<PracticaModel> findByFuenteDeFinanciamiento(String fuenteDeFinanciamiento);
-    List<PracticaModel> findByPersona(Integer id);
+    List<PracticaModel> findByTipoDePracticaTipoDePractica(String tipoDePractica);
 
-    boolean existsByTipoDePractica(String tipoDePractica);
     boolean existsByTitulo(String titulo);
 }

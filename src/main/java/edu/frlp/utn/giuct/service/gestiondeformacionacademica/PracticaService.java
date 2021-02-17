@@ -31,27 +31,27 @@ public class PracticaService {
     }
 
     public List<PracticaModel> findAllEnsayoCatedra() {
-        return repository.findByTipoDePractica(ENSAYO_CATEDRA);
+        return repository.findByTipoDePracticaTipoDePractica(ENSAYO_CATEDRA);
     }
 
     public List<PracticaModel> findAllPracticaProfesionalizante() {
-        return repository.findByTipoDePractica(PRACTICA_PROFESIONALIZANTE);
+        return repository.findByTipoDePracticaTipoDePractica(PRACTICA_PROFESIONALIZANTE);
     }
 
     public List<PracticaModel> findAllPracticaSupervisada() {
-        return repository.findByTipoDePractica(PRACTICA_SUPERVISADA);
+        return repository.findByTipoDePracticaTipoDePractica(PRACTICA_SUPERVISADA);
     }
 
     public List<PracticaModel> findAllProyectoFinalDeIngenieria() {
-        return repository.findByTipoDePractica(PROYECTO_FINAL_INGENIERIA);
+        return repository.findByTipoDePracticaTipoDePractica(PROYECTO_FINAL_INGENIERIA);
     }
 
     public List<PracticaModel> findAllTesisDeLicenciatura() {
-        return repository.findByTipoDePractica(TESIS_LICENCIATURA);
+        return repository.findByTipoDePracticaTipoDePractica(TESIS_LICENCIATURA);
     }
 
     public List<PracticaModel> findAllTesisDePostgrado() {
-        return repository.findByTipoDePractica(TESIS_POSTGRADO);
+        return repository.findByTipoDePracticaTipoDePractica(TESIS_POSTGRADO);
     }
 
     public PracticaModel findPracticaById(Integer id) {
