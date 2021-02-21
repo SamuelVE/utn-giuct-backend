@@ -59,12 +59,6 @@ public class PracticasController {
         return service.findAllTesisDePostgrado();
     }
 
-//    @RequestMapping("/ensayodecatedra")
-//    public PersonaModel getPersonByNombre(@PathVariable String nombre) {
-//        System.out.println("GestionDePracticasController -> getPersonByNombre()");
-//        return personaService.findPersonByNombre(nombre);
-//    }
-
     //ALTA
     @RequestMapping(method = RequestMethod.POST, value = "/")
     public @ResponseBody
