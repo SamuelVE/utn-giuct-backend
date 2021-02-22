@@ -21,6 +21,10 @@ public class PracticaFiltersService {
         return repository.findByTipoDePracticaTipoDePracticaAndFechaInicio(ENSAYO_CATEDRA,fecha);
     }
 
+    public List<PracticaModel> findEnsayoCatedraByAño(String fecha) {
+        return repository.findByTipoDePracticaTipoDePracticaAndFechaInicioContaining(ENSAYO_CATEDRA,fecha);
+    }
+
     public List<PracticaModel> findEnsayoCatedraByFechaFinal(String fecha) {
         return repository.findByTipoDePracticaTipoDePracticaAndFechaFinal(ENSAYO_CATEDRA,fecha);
     }
@@ -66,6 +70,10 @@ public class PracticaFiltersService {
     }
 
     //PRACTICA_PROFESIONALIZANTE
+    public List<PracticaModel> findPracticaProfesionalizanteByAño(String fecha) {
+        return repository.findByTipoDePracticaTipoDePracticaAndFechaInicioContaining(PRACTICA_PROFESIONALIZANTE,fecha);
+    }
+
     public List<PracticaModel> findPracticaProfesionalizanteByFechaInicio(String fecha) {
         return repository.findByTipoDePracticaTipoDePracticaAndFechaInicio(PRACTICA_PROFESIONALIZANTE,fecha);
     }
@@ -118,6 +126,10 @@ public class PracticaFiltersService {
         return repository.findByTipoDePracticaTipoDePracticaAndFechaInicio(PRACTICA_SUPERVISADA,fecha);
     }
 
+    public List<PracticaModel> findPracticaSupervisadaByAño(String fecha) {
+        return repository.findByTipoDePracticaTipoDePracticaAndFechaInicioContaining(PRACTICA_SUPERVISADA,fecha);
+    }
+
     public List<PracticaModel> findPracticaSupervisadaByFechaFinal(String fecha) {
         return repository.findByTipoDePracticaTipoDePracticaAndFechaFinal(PRACTICA_SUPERVISADA,fecha);
     }
@@ -165,6 +177,10 @@ public class PracticaFiltersService {
     //PROYECTO_FINAL_INGENIERIA
     public List<PracticaModel> findProyectoFinalByFechaInicio(String fecha) {
         return repository.findByTipoDePracticaTipoDePracticaAndFechaInicio(PROYECTO_FINAL_INGENIERIA,fecha);
+    }
+
+    public List<PracticaModel> findProyectoFinalByAño(String fecha) {
+        return repository.findByTipoDePracticaTipoDePracticaAndFechaInicioContaining(PROYECTO_FINAL_INGENIERIA,fecha);
     }
 
     public List<PracticaModel> findProyectoFinalByFechaFinal(String fecha) {
@@ -216,6 +232,10 @@ public class PracticaFiltersService {
         return repository.findByTipoDePracticaTipoDePracticaAndFechaInicio(TESIS_LICENCIATURA,fecha);
     }
 
+    public List<PracticaModel> findTesisLicenciaturaByAño(String fecha) {
+        return repository.findByTipoDePracticaTipoDePracticaAndFechaInicioContaining(TESIS_LICENCIATURA,fecha);
+    }
+
     public List<PracticaModel> findTesisLicenciaturaByFechaFinal(String fecha) {
         return repository.findByTipoDePracticaTipoDePracticaAndFechaFinal(TESIS_LICENCIATURA,fecha);
     }
@@ -263,6 +283,10 @@ public class PracticaFiltersService {
     //TESIS_POSTGRADO
     public List<PracticaModel> findTesisPostgradoByFechaInicio(String fecha) {
         return repository.findByTipoDePracticaTipoDePracticaAndFechaInicio(TESIS_POSTGRADO,fecha);
+    }
+
+    public List<PracticaModel> findTesisPostgradoByAño(String fecha) {
+        return repository.findByTipoDePracticaTipoDePracticaAndFechaInicioContaining(TESIS_POSTGRADO,fecha);
     }
 
     public List<PracticaModel> findTesisPostgradoByFechaFinal(String fecha) {

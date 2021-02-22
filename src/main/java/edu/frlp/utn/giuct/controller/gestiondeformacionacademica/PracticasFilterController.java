@@ -21,7 +21,6 @@ public class PracticasFilterController {
     @Autowired
     private PracticaFiltersService filter;
 
-    //ENSAYO CATEDRA
     @RequestMapping("/ensayodecatedra")
     public List<PracticaModel> consultarEnsayosDeCatedra(@RequestParam(required = false) Optional<String> fechaInicio,
                                                          @RequestParam(required = false) Optional<String> fechaFinal,
@@ -34,7 +33,8 @@ public class PracticasFilterController {
                                                          @RequestParam(required = false) Optional<String> tutor,
                                                          @RequestParam(required = false) Optional<String> docente,
                                                          @RequestParam(required = false) Optional<String> proyecto,
-                                                         @RequestParam(required = false) Optional<String> fuenteDeFinanciamiento){
+                                                         @RequestParam(required = false) Optional<String> fuenteDeFinanciamiento,
+                                                         @RequestParam(required = false) Optional<String> año){
         System.out.println("GestionDePracticasController -> consultarEnsayosDeCatedra()");
         AtomicReference<List<PracticaModel>> listToReturn = new AtomicReference<>(service.findAllEnsayoCatedra());
         fechaInicio.ifPresent(f -> listToReturn.set(filter.findEnsayoCatedraByFechaInicio(f)));
@@ -49,14 +49,9 @@ public class PracticasFilterController {
         docente.ifPresent(f -> listToReturn.set(filter.findEnsayoCatedraByDocente(f)));
         proyecto.ifPresent(f -> listToReturn.set(filter.findEnsayoCatedraByProyecto(f)));
         fuenteDeFinanciamiento.ifPresent(f -> listToReturn.set(filter.findEnsayoCatedraByFuenteDeFinanciamientoFuente(f)));
+        año.ifPresent(f -> listToReturn.set(filter.findEnsayoCatedraByAño(f)));
         return listToReturn.get();
     }
-    //PRACTICA_PROFESIONALIZANTE
-    //PRACTICA_SUPERVISADA
-    //PROYECTO_FINAL_INGENIERIA
-    //TESIS_LICENCIATURA
-    //TESIS_POSTGRADO
-
 
     @RequestMapping("/practicaprofesionalizante")
     public List<PracticaModel> consultarPracticaProfesionalizante(@RequestParam(required = false) Optional<String> fechaInicio,
@@ -70,7 +65,8 @@ public class PracticasFilterController {
                                                                   @RequestParam(required = false) Optional<String> tutor,
                                                                   @RequestParam(required = false) Optional<String> docente,
                                                                   @RequestParam(required = false) Optional<String> proyecto,
-                                                                  @RequestParam(required = false) Optional<String> fuenteDeFinanciamiento){
+                                                                  @RequestParam(required = false) Optional<String> fuenteDeFinanciamiento,
+                                                                  @RequestParam(required = false) Optional<String> año){
         System.out.println("GestionDePracticasController -> consultarPracticaProfesionalizante()");
         AtomicReference<List<PracticaModel>> listToReturn = new AtomicReference<>(service.findAllPracticaProfesionalizante());
         fechaInicio.ifPresent(f -> listToReturn.set(filter.findPracticaProfesionalizanteByFechaInicio(f)));
@@ -85,6 +81,7 @@ public class PracticasFilterController {
         docente.ifPresent(f -> listToReturn.set(filter.findPracticaProfesionalizanteByDocente(f)));
         proyecto.ifPresent(f -> listToReturn.set(filter.findPracticaProfesionalizanteByProyecto(f)));
         fuenteDeFinanciamiento.ifPresent(f -> listToReturn.set(filter.findPracticaProfesionalizanteByFuenteDeFinanciamientoFuente(f)));
+        año.ifPresent(f -> listToReturn.set(filter.findPracticaProfesionalizanteByAño(f)));
         return listToReturn.get();
     }
 
@@ -100,7 +97,8 @@ public class PracticasFilterController {
                                                             @RequestParam(required = false) Optional<String> tutor,
                                                             @RequestParam(required = false) Optional<String> docente,
                                                             @RequestParam(required = false) Optional<String> proyecto,
-                                                            @RequestParam(required = false) Optional<String> fuenteDeFinanciamiento){
+                                                            @RequestParam(required = false) Optional<String> fuenteDeFinanciamiento,
+                                                            @RequestParam(required = false) Optional<String> año){
         System.out.println("GestionDePracticasController -> consultarPracticaSupervisada()");
         AtomicReference<List<PracticaModel>> listToReturn = new AtomicReference<>(service.findAllPracticaSupervisada());
         fechaInicio.ifPresent(f -> listToReturn.set(filter.findPracticaSupervisadaByFechaInicio(f)));
@@ -115,6 +113,7 @@ public class PracticasFilterController {
         docente.ifPresent(f -> listToReturn.set(filter.findPracticaSupervisadaByDocente(f)));
         proyecto.ifPresent(f -> listToReturn.set(filter.findPracticaSupervisadaByProyecto(f)));
         fuenteDeFinanciamiento.ifPresent(f -> listToReturn.set(filter.findPracticaSupervisadaByFuenteDeFinanciamientoFuente(f)));
+        año.ifPresent(f -> listToReturn.set(filter.findPracticaSupervisadaByAño(f)));
         return listToReturn.get();
     }
 
@@ -130,7 +129,8 @@ public class PracticasFilterController {
                                                                   @RequestParam(required = false) Optional<String> tutor,
                                                                   @RequestParam(required = false) Optional<String> docente,
                                                                   @RequestParam(required = false) Optional<String> proyecto,
-                                                                  @RequestParam(required = false) Optional<String> fuenteDeFinanciamiento){
+                                                                  @RequestParam(required = false) Optional<String> fuenteDeFinanciamiento,
+                                                                  @RequestParam(required = false) Optional<String> año){
         System.out.println("GestionDePracticasController -> consultarProyectoFinalDeIngenieria()");
         AtomicReference<List<PracticaModel>> listToReturn = new AtomicReference<>(service.findAllProyectoFinalDeIngenieria());
         fechaInicio.ifPresent(f -> listToReturn.set(filter.findProyectoFinalByFechaInicio(f)));
@@ -145,6 +145,7 @@ public class PracticasFilterController {
         docente.ifPresent(f -> listToReturn.set(filter.findProyectoFinalByDocente(f)));
         proyecto.ifPresent(f -> listToReturn.set(filter.findProyectoFinalByProyecto(f)));
         fuenteDeFinanciamiento.ifPresent(f -> listToReturn.set(filter.findProyectoFinalByFuenteDeFinanciamientoFuente(f)));
+        año.ifPresent(f -> listToReturn.set(filter.findProyectoFinalByAño(f)));
         return listToReturn.get();
     }
 
@@ -160,7 +161,8 @@ public class PracticasFilterController {
                                                             @RequestParam(required = false) Optional<String> tutor,
                                                             @RequestParam(required = false) Optional<String> docente,
                                                             @RequestParam(required = false) Optional<String> proyecto,
-                                                            @RequestParam(required = false) Optional<String> fuenteDeFinanciamiento){
+                                                            @RequestParam(required = false) Optional<String> fuenteDeFinanciamiento,
+                                                            @RequestParam(required = false) Optional<String> año){
         System.out.println("GestionDePracticasController -> consultarTesisDeLicenciatura()");
         AtomicReference<List<PracticaModel>> listToReturn = new AtomicReference<>(service.findAllTesisDeLicenciatura());
         fechaInicio.ifPresent(f -> listToReturn.set(filter.findTesisLicenciaturaByFechaInicio(f)));
@@ -175,6 +177,7 @@ public class PracticasFilterController {
         docente.ifPresent(f -> listToReturn.set(filter.findTesisLicenciaturaByDocente(f)));
         proyecto.ifPresent(f -> listToReturn.set(filter.findTesisLicenciaturaByProyecto(f)));
         fuenteDeFinanciamiento.ifPresent(f -> listToReturn.set(filter.findTesisLicenciaturaByFuenteDeFinanciamientoFuente(f)));
+        año.ifPresent(f -> listToReturn.set(filter.findTesisLicenciaturaByAño(f)));
         return listToReturn.get();
     }
 
@@ -190,7 +193,8 @@ public class PracticasFilterController {
                                                          @RequestParam(required = false) Optional<String> tutor,
                                                          @RequestParam(required = false) Optional<String> docente,
                                                          @RequestParam(required = false) Optional<String> proyecto,
-                                                         @RequestParam(required = false) Optional<String> fuenteDeFinanciamiento){
+                                                         @RequestParam(required = false) Optional<String> fuenteDeFinanciamiento,
+                                                         @RequestParam(required = false) Optional<String> año){
         System.out.println("GestionDePracticasController -> consultarTesisDePostgrado()");
         AtomicReference<List<PracticaModel>> listToReturn = new AtomicReference<>(service.findAllTesisDePostgrado());
         fechaInicio.ifPresent(f -> listToReturn.set(filter.findTesisPostgradoByFechaInicio(f)));
@@ -205,6 +209,7 @@ public class PracticasFilterController {
         docente.ifPresent(f -> listToReturn.set(filter.findTesisPostgradoByDocente(f)));
         proyecto.ifPresent(f -> listToReturn.set(filter.findTesisPostgradoByProyecto(f)));
         fuenteDeFinanciamiento.ifPresent(f -> listToReturn.set(filter.findTesisPostgradoByFuenteDeFinanciamientoFuente(f)));
+        año.ifPresent(f -> listToReturn.set(filter.findTesisPostgradoByAño(f)));
         return listToReturn.get();
     }
 }

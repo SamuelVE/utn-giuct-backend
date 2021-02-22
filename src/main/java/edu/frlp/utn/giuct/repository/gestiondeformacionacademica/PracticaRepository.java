@@ -11,6 +11,7 @@ public interface PracticaRepository extends JpaRepository<PracticaModel, Integer
 
 
     List<PracticaModel> findByTipoDePracticaTipoDePracticaAndFechaInicio(String tipoDePractica, String fecha);
+    List<PracticaModel> findByTipoDePracticaTipoDePracticaAndFechaInicioContaining(String tipoDePractica, String fecha);
     List<PracticaModel> findByTipoDePracticaTipoDePracticaAndFechaFinal(String tipoDePractica, String fecha);
     List<PracticaModel> findByTipoDePracticaTipoDePracticaAndCatedra(String tipoDePractica, String catedra);
     List<PracticaModel> findByTipoDePracticaTipoDePracticaAndUniversidad(String tipoDePractica, String universidad);
