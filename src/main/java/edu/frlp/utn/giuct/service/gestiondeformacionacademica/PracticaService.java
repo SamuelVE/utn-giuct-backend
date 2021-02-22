@@ -19,13 +19,14 @@ public class PracticaService {
     private PracticaMapper mapper;
 
     //nombres cargados en la base de datos desde el mock
-    private final static String ENSAYO_CATEDRA= "ensayo_catedra";
-    private final static String PRACTICA_PROFESIONALIZANTE= "practica_profesionalizante";
-    private final static String PRACTICA_SUPERVISADA= "practica_supervisada";
-    private final static String PROYECTO_FINAL_INGENIERIA= "proyecto_final_ingenieria";
-    private final static String TESIS_LICENCIATURA= "tesis_licenciatura";
-    private final static String TESIS_POSTGRADO= "tesis_postgrado";
+    final static String ENSAYO_CATEDRA= "ensayo_catedra";
+    final static String PRACTICA_PROFESIONALIZANTE= "practica_profesionalizante";
+    final static String PRACTICA_SUPERVISADA= "practica_supervisada";
+    final static String PROYECTO_FINAL_INGENIERIA= "proyecto_final_ingenieria";
+    final static String TESIS_LICENCIATURA= "tesis_licenciatura";
+    final static String TESIS_POSTGRADO= "tesis_postgrado";
 
+    //CONSULTA
     public List<PracticaModel> findAll() {
         return repository.findAll();
     }
@@ -58,13 +59,22 @@ public class PracticaService {
         return repository.findById(id).get();
     }
 
+    public List<PracticaModel> findByProyecto(String proyecto) {
+        return repository.findByVinculacionConProyectoName(proyecto);
+    }
 
+    public List<PracticaModel> findByFuenteDeFinanciamiento(String fuenteDeFinanciamiento) {
+        return repository.findByFuenteDeFinanciamientoFuente(fuenteDeFinanciamiento);
+    }
+
+    //ALTA
     public void createPractica(PracticaModel practica) {
         if (!repository.existsByTitulo(practica.getTitulo())) {
             repository.save(practica);
         }
     }
 
+    //MODIFICACION
     public void updatePractica(Integer id, PracticaModel practicaToUpdate) {
         PracticaModel practicaExistente = repository.findById(id).orElse(null);
         Assert.notNull(practicaExistente, "Error: this person doesn't exists");
@@ -72,5 +82,6 @@ public class PracticaService {
         repository.save(practicaExistente);
     }
 
+    //ELIMINACION
     public void deletePractica(Integer id) {repository.deleteById(id);}
 }

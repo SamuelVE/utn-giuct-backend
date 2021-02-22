@@ -25,8 +25,24 @@ public class PersonaService {
         return repository.findById(id).get();
     }
 
-    public PersonaModel findPersonByNombre(String nombre) {
-        return repository.findByNombre(nombre).get(0);
+    public List<PersonaModel> findPersonByNombre(String nombre) {
+        return repository.findByNombre(nombre);
+    }
+
+    public List<PersonaModel> findPersonByNombreContaining(String nombre) {
+        return repository.findByNombreContaining(nombre);
+    }
+
+    public List<PersonaModel> findPersonByNombreAndApellido(String nombre, String apellido) {
+        return repository.findByNombreContainingOrApellidoContaining(nombre, apellido);
+    }
+
+    public List<PersonaModel> findPersonByTipoDeInvestigador(String tipoDeInvestigador) {
+        return repository.findByInvestigadorTipoDeInvestigador(tipoDeInvestigador);
+    }
+
+    public List<PersonaModel> findPersonByCategoriaDeInvestigador(String categoriaDeInvestigador) {
+        return repository.findByInvestigadorCategoriaDeInvestigador(categoriaDeInvestigador);
     }
 
     public void createPerson(PersonaModel persona) {

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 @RestController
 @RequestMapping("/gestiondepersonas")
@@ -30,20 +32,21 @@ public class PersonasController {
     //CONSULTA
 
     @RequestMapping("/")
-    public List<PersonaModel> consultarPersonas(){
-        return personaService.findAll();
+    public List<PersonaModel> consultarPersonas(@RequestParam(required = false) Optional<String> nombre,
+                                                @RequestParam(required = false) Optional<String> tipoDeInvestigador,
+                                                @RequestParam(required = false) Optional<String> categoriaDeInvestigador){
+        System.out.println("GestionDePracticasController -> consultarTesisDePostgrado()");
+        AtomicReference<List<PersonaModel>> listToReturn = new AtomicReference<>(personaService.findAll());
+        nombre.ifPresent(f -> listToReturn.set(personaService.findPersonByNombreContaining(f)));
+        tipoDeInvestigador.ifPresent(f -> listToReturn.set(personaService.findPersonByTipoDeInvestigador(f)));
+        categoriaDeInvestigador.ifPresent(f -> listToReturn.set(personaService.findPersonByCategoriaDeInvestigador(f)));
+        return listToReturn.get();
     }
 
     @RequestMapping("/id/{id}")
     public PersonaModel getPersonById(@PathVariable Integer id) {
         System.out.println("GestionDePersonasController -> getPersonById()");
         return personaService.findPersonById(id);
-    }
-
-    @RequestMapping("/nombre/{nombre}")
-    public PersonaModel getPersonByNombre(@PathVariable String nombre) {
-        System.out.println("GestionDePersonasController -> getPersonByNombre()");
-        return personaService.findPersonByNombre(nombre);
     }
 
     //ALTA

@@ -5,22 +5,27 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface PracticaRepository extends JpaRepository<PracticaModel, Integer> {
-    Optional<PracticaModel> findByFechaInicio(String fecha);
-    Optional<PracticaModel> findByFechaFinal(String fecha);
-    List<PracticaModel> findByCatedra(String catedra);
-    List<PracticaModel> findByUniversidad(String universidad);
-    List<PracticaModel> findByEscuela(String escuela);
-    List<PracticaModel> findByDirector(String director);
-    List<PracticaModel> findByCarrera(String carrera);
-    List<PracticaModel> findByTitulo(String titulo);
-    List<PracticaModel> findByTutor(String tutor);
-    List<PracticaModel> findByDocente(String docente);
+
+
+    List<PracticaModel> findByTipoDePracticaTipoDePracticaAndFechaInicio(String tipoDePractica, String fecha);
+    List<PracticaModel> findByTipoDePracticaTipoDePracticaAndFechaFinal(String tipoDePractica, String fecha);
+    List<PracticaModel> findByTipoDePracticaTipoDePracticaAndCatedra(String tipoDePractica, String catedra);
+    List<PracticaModel> findByTipoDePracticaTipoDePracticaAndUniversidad(String tipoDePractica, String universidad);
+    List<PracticaModel> findByTipoDePracticaTipoDePracticaAndEscuela(String tipoDePractica, String escuela);
+    List<PracticaModel> findByTipoDePracticaTipoDePracticaAndDirector(String tipoDePractica, String director);
+    List<PracticaModel> findByTipoDePracticaTipoDePracticaAndCarrera(String tipoDePractica, String carrera);
+    List<PracticaModel> findByTipoDePracticaTipoDePracticaAndTitulo(String tipoDePractica, String titulo);
+    List<PracticaModel> findByTipoDePracticaTipoDePracticaAndTutor(String tipoDePractica, String tutor);
+    List<PracticaModel> findByTipoDePracticaTipoDePracticaAndDocente(String tipoDePractica, String docente);
 
     List<PracticaModel> findByTipoDePracticaTipoDePractica(String tipoDePractica);
+    List<PracticaModel> findByTipoDePracticaTipoDePracticaAndVinculacionConProyectoName(String tipoDePractica, String vinculacionConProyecto);
+    List<PracticaModel> findByVinculacionConProyectoName(String vinculacionConProyecto);
+    List<PracticaModel> findByFuenteDeFinanciamientoFuente(String fuenteDeFinanciamiento);
+    List<PracticaModel> findByTipoDePracticaTipoDePracticaAndFuenteDeFinanciamientoFuente(String tipoDePractica, String fuenteDeFinanciamiento);
 
     boolean existsByTitulo(String titulo);
 }
