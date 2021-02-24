@@ -21,4 +21,5 @@ public class InvestigadorModel {
     private String tipoDeInvestigador;
     private String cantidadDeHoras;
     private String fechaDeObtencionDeCategoria;
+    private String numeroDeResolucion;
 }
