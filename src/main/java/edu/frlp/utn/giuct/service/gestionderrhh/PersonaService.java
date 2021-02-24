@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.util.List;
+import java.util.function.BiFunction;
+
 @Service
 public class PersonaService {
 
@@ -29,12 +31,11 @@ public class PersonaService {
         return repository.findByNombre(nombre);
     }
 
-    public List<PersonaModel> findPersonByNombreContaining(String nombre) {
-        return repository.findByNombreContaining(nombre);
-    }
-
-    public List<PersonaModel> findPersonByNombreAndApellido(String nombre, String apellido) {
-        return repository.findByNombreContainingOrApellidoContaining(nombre, apellido);
+    public List<PersonaModel> findPersonByNombreContaining(String input) {
+        BiFunction<String, Integer, String> determineParameter = (infix, position) -> infix.contains(" ") ? infix.split(" ")[position] : infix;
+        String parametro1 = determineParameter.apply(input, 0);
+        String parametro2 = determineParameter.apply(input, 1);
+        return repository.findByNombreContainingOrApellidoContaining(parametro1, parametro2);
     }
 
     public List<PersonaModel> findPersonByTipoDeInvestigador(String tipoDeInvestigador) {
