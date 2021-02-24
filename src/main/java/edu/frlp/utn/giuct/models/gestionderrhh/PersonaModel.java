@@ -22,6 +22,10 @@ public class PersonaModel {
     private String dni;
     private String direccionPostal;
     private String telefono;
+    private String cuil;
+    private String emailPersonal;
+    private String emailInstitucional;
+    private String situacionAcademica;
     @OneToOne(fetch=FetchType.EAGER, optional=true, cascade=CascadeType.ALL) private PasaporteModel pasaporte;
     @OneToOne(fetch=FetchType.EAGER, optional=true, cascade=CascadeType.ALL) private InvestigadorModel investigador;
     @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL) private List<MateriaModel> materias;
