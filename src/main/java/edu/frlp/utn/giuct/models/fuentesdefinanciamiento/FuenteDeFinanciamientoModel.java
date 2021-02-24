@@ -14,4 +14,9 @@ import javax.persistence.*;
 public class FuenteDeFinanciamientoModel {
     @Id
     private String fuente;
+
+    @Override
+    public String toString() {
+        return fuente;
+    }
 }

@@ -16,4 +16,9 @@ import javax.persistence.Table;
 public class PidModel {
     @Id
     private String name;
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
