@@ -17,3 +17,4 @@ variables:
   fuentesDeFinanciamientoMockUrl: https://8d583ce8-9ca9-44e3-90e7-a9c0aa69274e.mock.pstmn.io/fuentesDeFinanciamiento
   pidsMockUrl: https://8d583ce8-9ca9-44e3-90e7-a9c0aa69274e.mock.pstmn.io/PID
   practicasMockUrl: https://8d583ce8-9ca9-44e3-90e7-a9c0aa69274e.mock.pstmn.io/tiposdepractica
+  tesisMockUrl: https://8d583ce8-9ca9-44e3-90e7-a9c0aa69274e.mock.pstmn.io/practicas

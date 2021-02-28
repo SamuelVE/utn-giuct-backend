@@ -1,10 +1,12 @@
 package edu.frlp.utn.giuct.setup;
 
 import edu.frlp.utn.giuct.models.fuentesdefinanciamiento.FuenteDeFinanciamientoModel;
+import edu.frlp.utn.giuct.models.gestiondeformacionacademica.PracticaModel;
 import edu.frlp.utn.giuct.models.gestiondepids.PidModel;
 import edu.frlp.utn.giuct.models.gestiondeformacionacademica.TipoDePracticaEnumModel;
 import edu.frlp.utn.giuct.models.gestionderrhh.PersonaModel;
 import edu.frlp.utn.giuct.repository.fuentesdefinanciamiento.FuenteDeFinanciamientoRepository;
+import edu.frlp.utn.giuct.repository.gestiondeformacionacademica.PracticaRepository;
 import edu.frlp.utn.giuct.repository.gestiondepids.PidRepository;
 import edu.frlp.utn.giuct.repository.gestiondeformacionacademica.TipoDePracticaRepository;
 import edu.frlp.utn.giuct.repository.gestionderrhh.*;
@@ -36,6 +38,9 @@ public class DbInicialization {
     @Autowired
     private TipoDePracticaRepository tipoDePracticaRepository;
 
+    @Autowired
+    private PracticaRepository practicaRepository;
+
     @Value("${variables.personasMockUrl}")
     private String personasMockUrl;
 
@@ -47,6 +52,9 @@ public class DbInicialization {
 
     @Value("${variables.practicasMockUrl}")
     private String practicasMockUrl;
+
+    @Value("${variables.tesisMockUrl}")
+    private String tesisMockUrl;
 
 
     @PostConstruct
@@ -72,10 +80,15 @@ public class DbInicialization {
         if (!pidRepository.existsByName(mockPids[0])) {
             Arrays.stream(mockPids).forEach(m -> pidRepository.save(new PidModel(m)));
         }
+        System.out.println("Inicializando practicasenum desde el mock");
+        String[] mockPracticasEnum = restTemplate.build().getForObject(practicasMockUrl, String[].class);
+        if (!tipoDePracticaRepository.existsByTipoDePractica(mockPracticasEnum[0])) {
+            Arrays.stream(mockPracticasEnum).forEach(m -> tipoDePracticaRepository.save(new TipoDePracticaEnumModel(m)));
+        }
         System.out.println("Inicializando practicas desde el mock");
-        String[] mockPracticas = restTemplate.build().getForObject(practicasMockUrl, String[].class);
-        if (!tipoDePracticaRepository.existsByTipoDePractica(mockPracticas[0])) {
-            Arrays.stream(mockPracticas).forEach(m -> tipoDePracticaRepository.save(new TipoDePracticaEnumModel(m)));
+        PracticaModel[] mockPracticas = restTemplate.build().getForObject(tesisMockUrl, PracticaModel[].class);
+        if (!practicaRepository.existsByTitulo(mockPracticas[0].getTitulo())) {
+            Arrays.stream(mockPracticas).forEach(m -> practicaRepository.save(m));
         }
     }
 }
