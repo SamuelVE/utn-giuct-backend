@@ -15,6 +15,7 @@ public class MetricsModel {
     private Long practicasProfesionalizantesCreadas;
     private Long practicasSupervisadasCreadas;
     private Long ensayosDeCatedraCreadas;
+    private Long proyectosFinalesCreados;
     private Long totalDeTesis;
     private Long totalDePracticas;
 }

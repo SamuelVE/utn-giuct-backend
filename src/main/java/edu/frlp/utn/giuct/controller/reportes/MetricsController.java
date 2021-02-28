@@ -51,6 +51,13 @@ public class MetricsController {
         DownloadFileFromBytes.mapObjectsToCsv(fileName, response,  practicaService.findAllPracticaProfesionalizante());
     }
 
+    @RequestMapping("/proyectosFinales/csv")
+    public @ResponseBody void getProyectosFinalesCsv(HttpServletResponse response) throws IOException{
+        System.out.println("MetricsController -> getProyectosFinalesCsv()");
+        String fileName = "proyectosFinales"+ Instant.now()+ ".csv";
+        DownloadFileFromBytes.mapObjectsToCsv(fileName, response,  practicaService.findAllProyectoFinalDeIngenieria());
+    }
+
     @RequestMapping("/practicasSupervisadas/csv")
     public @ResponseBody void getPracticasSupervisadasCsv(HttpServletResponse response) throws IOException{
         System.out.println("MetricsController -> getPracticasSupervisadasCsv()");
@@ -63,5 +70,19 @@ public class MetricsController {
         System.out.println("MetricsController -> getEnsayoDeCatedraCsv()");
         String fileName = "ensayoDeCatedra"+ Instant.now()+ ".csv";
         DownloadFileFromBytes.mapObjectsToCsv(fileName, response,  practicaService.findAllEnsayoCatedra());
+    }
+
+    @RequestMapping("/totalTesis/csv")
+    public void getTotalTesisCsv(HttpServletResponse response) throws IOException{
+        System.out.println("MetricsController -> getTotalTesisCsv()");
+        String fileName = "totalTesis"+ Instant.now()+ ".csv";
+        DownloadFileFromBytes.mapObjectsToCsv(fileName, response,  practicaService.findAllTesis());
+    }
+
+    @RequestMapping("/totalPracticas/csv")
+    public void getTotalPracticasCsv(HttpServletResponse response) throws IOException{
+        System.out.println("MetricsController -> getTotalPracticasCsv()");
+        String fileName = "totalPracticas"+ Instant.now()+ ".csv";
+        DownloadFileFromBytes.mapObjectsToCsv(fileName, response,  practicaService.findAllPracticas());
     }
 }

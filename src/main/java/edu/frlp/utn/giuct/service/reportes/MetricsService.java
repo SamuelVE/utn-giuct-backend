@@ -18,15 +18,17 @@ public class MetricsService {
         Long practicasProfesionalizantesCreadas = session.createQuery("SELECT COUNT(*) FROM PracticaModel p WHERE p.tipoDePractica.tipoDePractica='practica_profesionalizante'", Long.class).getSingleResult();
         Long practicasSupervisadasCreadas = session.createQuery("SELECT COUNT(*) FROM PracticaModel p WHERE p.tipoDePractica.tipoDePractica='practica_supervisada'", Long.class).getSingleResult();
         Long tesisLicenciaturaCreadas = session.createQuery("SELECT COUNT(*) FROM PracticaModel p WHERE p.tipoDePractica.tipoDePractica='tesis_licenciatura'", Long.class).getSingleResult();
-        Long TesisPostgradoCreadas = session.createQuery("SELECT COUNT(*) FROM PracticaModel p WHERE p.tipoDePractica.tipoDePractica='tesis_postgrado'", Long.class).getSingleResult();;
+        Long tesisPostgradoCreadas = session.createQuery("SELECT COUNT(*) FROM PracticaModel p WHERE p.tipoDePractica.tipoDePractica='tesis_postgrado'", Long.class).getSingleResult();;
+        Long proyectosFinalesCreados= session.createQuery("SELECT COUNT(*) FROM PracticaModel p WHERE p.tipoDePractica.tipoDePractica='proyecto_final_ingenieria'", Long.class).getSingleResult();;
         return MetricsModel.builder()
                 .ensayosDeCatedraCreadas(ensayosDeCatedraCreadas)
                 .practicasProfesionalizantesCreadas(practicasProfesionalizantesCreadas)
                 .practicasSupervisadasCreadas(practicasSupervisadasCreadas)
                 .tesisLicenciaturaCreadas(tesisLicenciaturaCreadas)
-                .TesisPostgradoCreadas(TesisPostgradoCreadas)
+                .TesisPostgradoCreadas(tesisPostgradoCreadas)
                 .totalDePracticas(practicasProfesionalizantesCreadas+ensayosDeCatedraCreadas+practicasSupervisadasCreadas)
-                .totalDeTesis(tesisLicenciaturaCreadas+TesisPostgradoCreadas)
+                .totalDeTesis(tesisLicenciaturaCreadas+tesisPostgradoCreadas+proyectosFinalesCreados)
+                .proyectosFinalesCreados(proyectosFinalesCreados)
                 .build();
     }
 }

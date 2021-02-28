@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 @Service
@@ -29,6 +31,20 @@ public class PracticaService {
     //CONSULTA
     public List<PracticaModel> findAll() {
         return repository.findAll();
+    }
+
+    public List<PracticaModel> findAllPracticas() {
+        return repository.findByTipoDePracticaTipoDePracticaIn(
+                new HashSet<String>(Arrays.asList(PRACTICA_PROFESIONALIZANTE,
+                        ENSAYO_CATEDRA,
+                        PRACTICA_SUPERVISADA)));
+    }
+
+    public List<PracticaModel> findAllTesis() {
+        return repository.findByTipoDePracticaTipoDePracticaIn(
+                new HashSet<String>(Arrays.asList(PROYECTO_FINAL_INGENIERIA,
+                        TESIS_LICENCIATURA,
+                        TESIS_POSTGRADO)));
     }
 
     public List<PracticaModel> findAllEnsayoCatedra() {

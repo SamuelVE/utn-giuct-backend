@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public interface PracticaRepository extends JpaRepository<PracticaModel, Integer> {
@@ -23,6 +24,7 @@ public interface PracticaRepository extends JpaRepository<PracticaModel, Integer
     List<PracticaModel> findByTipoDePracticaTipoDePracticaAndDocente(String tipoDePractica, String docente);
 
     List<PracticaModel> findByTipoDePracticaTipoDePractica(String tipoDePractica);
+    List<PracticaModel> findByTipoDePracticaTipoDePracticaIn(Set<String> tipoDePractica);
     List<PracticaModel> findByTipoDePracticaTipoDePracticaAndVinculacionConProyectoName(String tipoDePractica, String vinculacionConProyecto);
     List<PracticaModel> findByVinculacionConProyectoName(String vinculacionConProyecto);
     List<PracticaModel> findByFuenteDeFinanciamientoFuente(String fuenteDeFinanciamiento);
