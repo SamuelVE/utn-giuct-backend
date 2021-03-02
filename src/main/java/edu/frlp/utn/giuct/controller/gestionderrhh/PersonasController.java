@@ -32,13 +32,17 @@ public class PersonasController {
     //CONSULTA
 
     @RequestMapping("/")
-    public List<PersonaModel> consultarPersonas(@RequestParam(required = false) Optional<String> nombre,
-                                                @RequestParam(required = false) Optional<String> tipoDeInvestigador,
+    public List<PersonaModel> consultarPersonas(@RequestParam(required = false,name = "Nombreoapellido") Optional<String> nombre,
+                                                @RequestParam(required = false, name="Tipodeinvestigador") Optional<String> tipoDeInvestigador,
+                                                @RequestParam(required = false, name = "DNI") Optional<String> dni,
+                                                @RequestParam(required = false,name = "Email") Optional<String> email,
                                                 @RequestParam(required = false) Optional<String> categoriaDeInvestigador){
         System.out.println("GestionDePracticasController -> consultarTesisDePostgrado()");
         AtomicReference<List<PersonaModel>> listToReturn = new AtomicReference<>(personaService.findAll());
         nombre.ifPresent(f -> listToReturn.set(personaService.findPersonByNombreContaining(f)));
         tipoDeInvestigador.ifPresent(f -> listToReturn.set(personaService.findPersonByTipoDeInvestigador(f)));
+        dni.ifPresent(f -> listToReturn.set(personaService.findPersonByDni(f)));
+        email.ifPresent(f -> listToReturn.set(personaService.findPersonByEmail(f)));
         categoriaDeInvestigador.ifPresent(f -> listToReturn.set(personaService.findPersonByCategoriaDeInvestigador(f)));
         return listToReturn.get();
     }

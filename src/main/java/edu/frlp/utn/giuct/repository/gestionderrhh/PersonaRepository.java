@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PersonaRepository extends JpaRepository<PersonaModel, Integer> {
@@ -12,7 +13,8 @@ public interface PersonaRepository extends JpaRepository<PersonaModel, Integer> 
     List<PersonaModel> findByNombre(String name);
     List<PersonaModel> findByNombreContaining(String name);
     List<PersonaModel> findByNombreContainingOrApellidoContaining(String nombre, String apellido);
-    PersonaModel findByDni(String dni);
+    List<PersonaModel> findByDniContaining(String dni);
+    List<PersonaModel> findByEmailPersonalContaining(String email);
 
     List<PersonaModel> findByInvestigadorTipoDeInvestigador(String tipoDeInvestigador);
     List<PersonaModel> findByInvestigadorCategoriaDeInvestigador(String categoriaDeInvestigador);

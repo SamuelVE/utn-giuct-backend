@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.function.BiFunction;
 
@@ -24,7 +25,14 @@ public class PersonaService {
     }
 
     public PersonaModel findPersonById(Integer id) {
-        return repository.findById(id).get();
+        return repository.findById(id).orElse(null);
+    }
+
+    public List<PersonaModel> findPersonByDni(String dni) {
+        return repository.findByDniContaining(dni);
+    }
+    public List<PersonaModel> findPersonByEmail(String email) {
+        return repository.findByEmailPersonalContaining(email);
     }
 
     public List<PersonaModel> findPersonByNombre(String nombre) {
