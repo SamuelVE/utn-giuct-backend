@@ -34,7 +34,7 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findEnsayoCatedraByUniversidad(String universidad) {
-        return repository.findByTipoDePracticaTipoDePracticaAndUniversidad(ENSAYO_CATEDRA,universidad);
+        return repository.findByTipoDePracticaTipoDePracticaAndUniversidadContaining(ENSAYO_CATEDRA,universidad);
     }
 
     public List<PracticaModel> findEnsayoCatedraByEscuela(String escuela) {
@@ -50,7 +50,7 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findEnsayoCatedraByTitulo(String titulo) {
-        return repository.findByTipoDePracticaTipoDePracticaAndTitulo(ENSAYO_CATEDRA,titulo);
+        return repository.findByTipoDePracticaTipoDePracticaAndTituloContaining(ENSAYO_CATEDRA,titulo);
     }
 
     public List<PracticaModel> findEnsayoCatedraByTutor(String tutor) {
@@ -62,11 +62,11 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findEnsayoCatedraByProyecto(String proyecto) {
-        return repository.findByTipoDePracticaTipoDePracticaAndVinculacionConProyectoName(ENSAYO_CATEDRA,proyecto);
+        return repository.findByTipoDePracticaTipoDePracticaAndVinculacionConProyectoNameContaining(ENSAYO_CATEDRA,proyecto);
     }
 
     public List<PracticaModel> findEnsayoCatedraByFuenteDeFinanciamientoFuente(String fuenteDeFinanciamiento) {
-        return repository.findByTipoDePracticaTipoDePracticaAndFuenteDeFinanciamientoFuente(ENSAYO_CATEDRA,fuenteDeFinanciamiento);
+        return repository.findByTipoDePracticaTipoDePracticaAndFuenteDeFinanciamientoFuenteContaining(ENSAYO_CATEDRA,fuenteDeFinanciamiento);
     }
 
     //PRACTICA_PROFESIONALIZANTE
@@ -87,7 +87,7 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findPracticaProfesionalizanteByUniversidad(String universidad) {
-        return repository.findByTipoDePracticaTipoDePracticaAndUniversidad(PRACTICA_PROFESIONALIZANTE,universidad);
+        return repository.findByTipoDePracticaTipoDePracticaAndUniversidadContaining(PRACTICA_PROFESIONALIZANTE,universidad);
     }
 
     public List<PracticaModel> findPracticaProfesionalizanteByEscuela(String escuela) {
@@ -103,7 +103,7 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findPracticaProfesionalizanteByTitulo(String titulo) {
-        return repository.findByTipoDePracticaTipoDePracticaAndTitulo(PRACTICA_PROFESIONALIZANTE,titulo);
+        return repository.findByTipoDePracticaTipoDePracticaAndTituloContaining(PRACTICA_PROFESIONALIZANTE,titulo);
     }
 
     public List<PracticaModel> findPracticaProfesionalizanteByTutor(String tutor) {
@@ -115,11 +115,11 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findPracticaProfesionalizanteByProyecto(String proyecto) {
-        return repository.findByTipoDePracticaTipoDePracticaAndVinculacionConProyectoName(PRACTICA_PROFESIONALIZANTE,proyecto);
+        return repository.findByTipoDePracticaTipoDePracticaAndVinculacionConProyectoNameContaining(PRACTICA_PROFESIONALIZANTE,proyecto);
     }
 
     public List<PracticaModel> findPracticaProfesionalizanteByFuenteDeFinanciamientoFuente(String fuenteDeFinanciamiento) {
-        return repository.findByTipoDePracticaTipoDePracticaAndFuenteDeFinanciamientoFuente(PRACTICA_PROFESIONALIZANTE,fuenteDeFinanciamiento);
+        return repository.findByTipoDePracticaTipoDePracticaAndFuenteDeFinanciamientoFuenteContaining(PRACTICA_PROFESIONALIZANTE,fuenteDeFinanciamiento);
     }
     //PRACTICA_SUPERVISADA
     public List<PracticaModel> findPracticaSupervisadaByFechaInicio(String fecha) {
@@ -139,7 +139,7 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findPracticaSupervisadaByUniversidad(String universidad) {
-        return repository.findByTipoDePracticaTipoDePracticaAndUniversidad(PRACTICA_SUPERVISADA,universidad);
+        return repository.findByTipoDePracticaTipoDePracticaAndUniversidadContaining(PRACTICA_SUPERVISADA,universidad);
     }
 
     public List<PracticaModel> findPracticaSupervisadaByEscuela(String escuela) {
@@ -155,7 +155,7 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findPracticaSupervisadaByTitulo(String titulo) {
-        return repository.findByTipoDePracticaTipoDePracticaAndTitulo(PRACTICA_SUPERVISADA,titulo);
+        return repository.findByTipoDePracticaTipoDePracticaAndTituloContaining(PRACTICA_SUPERVISADA,titulo);
     }
 
     public List<PracticaModel> findPracticaSupervisadaByTutor(String tutor) {
@@ -167,11 +167,11 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findPracticaSupervisadaByProyecto(String proyecto) {
-        return repository.findByTipoDePracticaTipoDePracticaAndVinculacionConProyectoName(PRACTICA_SUPERVISADA,proyecto);
+        return repository.findByTipoDePracticaTipoDePracticaAndVinculacionConProyectoNameContaining(PRACTICA_SUPERVISADA,proyecto);
     }
 
     public List<PracticaModel> findPracticaSupervisadaByFuenteDeFinanciamientoFuente(String fuenteDeFinanciamiento) {
-        return repository.findByTipoDePracticaTipoDePracticaAndFuenteDeFinanciamientoFuente(PRACTICA_SUPERVISADA,fuenteDeFinanciamiento);
+        return repository.findByTipoDePracticaTipoDePracticaAndFuenteDeFinanciamientoFuenteContaining(PRACTICA_SUPERVISADA,fuenteDeFinanciamiento);
     }
 
     //PROYECTO_FINAL_INGENIERIA
@@ -192,7 +192,7 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findProyectoFinalByUniversidad(String universidad) {
-        return repository.findByTipoDePracticaTipoDePracticaAndUniversidad(PROYECTO_FINAL_INGENIERIA,universidad);
+        return repository.findByTipoDePracticaTipoDePracticaAndUniversidadContaining(PROYECTO_FINAL_INGENIERIA,universidad);
     }
 
     public List<PracticaModel> findProyectoFinalByEscuela(String escuela) {
@@ -208,7 +208,7 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findProyectoFinalByTitulo(String titulo) {
-        return repository.findByTipoDePracticaTipoDePracticaAndTitulo(PROYECTO_FINAL_INGENIERIA,titulo);
+        return repository.findByTipoDePracticaTipoDePracticaAndTituloContaining(PROYECTO_FINAL_INGENIERIA,titulo);
     }
 
     public List<PracticaModel> findProyectoFinalByTutor(String tutor) {
@@ -220,11 +220,11 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findProyectoFinalByProyecto(String proyecto) {
-        return repository.findByTipoDePracticaTipoDePracticaAndVinculacionConProyectoName(PROYECTO_FINAL_INGENIERIA,proyecto);
+        return repository.findByTipoDePracticaTipoDePracticaAndVinculacionConProyectoNameContaining(PROYECTO_FINAL_INGENIERIA,proyecto);
     }
 
     public List<PracticaModel> findProyectoFinalByFuenteDeFinanciamientoFuente(String fuenteDeFinanciamiento) {
-        return repository.findByTipoDePracticaTipoDePracticaAndFuenteDeFinanciamientoFuente(PROYECTO_FINAL_INGENIERIA,fuenteDeFinanciamiento);
+        return repository.findByTipoDePracticaTipoDePracticaAndFuenteDeFinanciamientoFuenteContaining(PROYECTO_FINAL_INGENIERIA,fuenteDeFinanciamiento);
     }
 
     //TESIS_LICENCIATURA
@@ -245,7 +245,7 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findTesisLicenciaturaByUniversidad(String universidad) {
-        return repository.findByTipoDePracticaTipoDePracticaAndUniversidad(TESIS_LICENCIATURA,universidad);
+        return repository.findByTipoDePracticaTipoDePracticaAndUniversidadContaining(TESIS_LICENCIATURA,universidad);
     }
 
     public List<PracticaModel> findTesisLicenciaturaByEscuela(String escuela) {
@@ -261,7 +261,7 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findTesisLicenciaturaByTitulo(String titulo) {
-        return repository.findByTipoDePracticaTipoDePracticaAndTitulo(TESIS_LICENCIATURA,titulo);
+        return repository.findByTipoDePracticaTipoDePracticaAndTituloContaining(TESIS_LICENCIATURA,titulo);
     }
 
     public List<PracticaModel> findTesisLicenciaturaByTutor(String tutor) {
@@ -273,11 +273,11 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findTesisLicenciaturaByProyecto(String proyecto) {
-        return repository.findByTipoDePracticaTipoDePracticaAndVinculacionConProyectoName(TESIS_LICENCIATURA,proyecto);
+        return repository.findByTipoDePracticaTipoDePracticaAndVinculacionConProyectoNameContaining(TESIS_LICENCIATURA,proyecto);
     }
 
     public List<PracticaModel> findTesisLicenciaturaByFuenteDeFinanciamientoFuente(String fuenteDeFinanciamiento) {
-        return repository.findByTipoDePracticaTipoDePracticaAndFuenteDeFinanciamientoFuente(TESIS_LICENCIATURA,fuenteDeFinanciamiento);
+        return repository.findByTipoDePracticaTipoDePracticaAndFuenteDeFinanciamientoFuenteContaining(TESIS_LICENCIATURA,fuenteDeFinanciamiento);
     }
 
     //TESIS_POSTGRADO
@@ -298,7 +298,7 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findTesisPostgradoByUniversidad(String universidad) {
-        return repository.findByTipoDePracticaTipoDePracticaAndUniversidad(TESIS_POSTGRADO,universidad);
+        return repository.findByTipoDePracticaTipoDePracticaAndUniversidadContaining(TESIS_POSTGRADO,universidad);
     }
 
     public List<PracticaModel> findTesisPostgradoByEscuela(String escuela) {
@@ -314,7 +314,7 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findTesisPostgradoByTitulo(String titulo) {
-        return repository.findByTipoDePracticaTipoDePracticaAndTitulo(TESIS_POSTGRADO,titulo);
+        return repository.findByTipoDePracticaTipoDePracticaAndTituloContaining(TESIS_POSTGRADO,titulo);
     }
 
     public List<PracticaModel> findTesisPostgradoByTutor(String tutor) {
@@ -326,11 +326,11 @@ public class PracticaFiltersService {
     }
 
     public List<PracticaModel> findTesisPostgradoByProyecto(String proyecto) {
-        return repository.findByTipoDePracticaTipoDePracticaAndVinculacionConProyectoName(TESIS_POSTGRADO,proyecto);
+        return repository.findByTipoDePracticaTipoDePracticaAndVinculacionConProyectoNameContaining(TESIS_POSTGRADO,proyecto);
     }
 
     public List<PracticaModel> findTesisPostgradoByFuenteDeFinanciamientoFuente(String fuenteDeFinanciamiento) {
-        return repository.findByTipoDePracticaTipoDePracticaAndFuenteDeFinanciamientoFuente(TESIS_POSTGRADO,fuenteDeFinanciamiento);
+        return repository.findByTipoDePracticaTipoDePracticaAndFuenteDeFinanciamientoFuenteContaining(TESIS_POSTGRADO,fuenteDeFinanciamiento);
     }
 
 }
