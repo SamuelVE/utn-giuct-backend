@@ -212,4 +212,20 @@ public class PracticasFilterController {
         año.ifPresent(f -> listToReturn.set(filter.findTesisPostgradoByAño(f)));
         return listToReturn.get();
     }
+
+    @RequestMapping("/totalPracticas")
+    public List<PracticaModel> consultarTotalPracticas(@RequestParam(required = false) Optional<String> año){
+        System.out.println("GestionDePracticasController -> consultarTotalPracticas()");
+        AtomicReference<List<PracticaModel>> listToReturn = new AtomicReference<>(service.findAllPracticas());
+        año.ifPresent(f -> listToReturn.set(service.findAllPracticas()));
+        return listToReturn.get();
+    }
+
+    @RequestMapping("/totalTesis")
+    public List<PracticaModel> consultarTotalTesis(@RequestParam(required = false) Optional<String> año){
+        System.out.println("GestionDePracticasController -> consultarTotalTesis()");
+        AtomicReference<List<PracticaModel>> listToReturn = new AtomicReference<>(service.findAllTesis());
+        año.ifPresent(f -> listToReturn.set(service.findAllTesis()));
+        return listToReturn.get();
+    }
 }

@@ -3,9 +3,13 @@ package edu.frlp.utn.giuct.controller.gestiondeformacionacademica;
 
 import edu.frlp.utn.giuct.models.gestiondeformacionacademica.PracticaModel;
 import edu.frlp.utn.giuct.service.gestiondeformacionacademica.PracticaService;
+import edu.frlp.utn.giuct.setup.DownloadFileFromBytes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.time.Instant;
 import java.util.List;
 
 @RestController
@@ -21,6 +25,18 @@ public class PracticasController {
     public PracticaModel getPracticaById(@PathVariable Integer id) {
         System.out.println("GestionDePracticasController -> getPracticaById()");
         return service.findPracticaById(id);
+    }
+
+    @RequestMapping("/totalTesis")
+    public List<PracticaModel> getTotalTesis() {
+        System.out.println("GestionDePracticasController -> getTotalTesisCsv()");
+        return service.findAllTesis();
+    }
+
+    @RequestMapping("/totalPracticas")
+    public List<PracticaModel> getTotalPracticas() {
+        System.out.println("GestionDePracticasController -> getTotalPracticas()");
+        return service.findAllPracticas();
     }
 
     @RequestMapping("/ensayodecatedra")
