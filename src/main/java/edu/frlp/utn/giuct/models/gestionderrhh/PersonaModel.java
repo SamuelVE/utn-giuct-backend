@@ -28,7 +28,7 @@ public class PersonaModel {
     private String situacionAcademica;
     @OneToOne(fetch=FetchType.EAGER, optional=true, cascade=CascadeType.ALL) private PasaporteModel pasaporte;
     @OneToOne(fetch=FetchType.EAGER, optional=true, cascade=CascadeType.ALL) private InvestigadorModel investigador;
-    @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL) private List<MateriaModel> materias;
+    //@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL) private List<MateriaModel> materias;
 
     @Override
     public String toString() {
